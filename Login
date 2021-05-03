@@ -1,0 +1,49 @@
+# Login
+
+apt update
+
+#Install Go
+
+wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+
+#Set Path Variable
+
+export PATH=$PATH:/usr/local/go/bin
+
+source ~/.profile
+
+go version
+
+#Clone The Code And Build
+
+mkdir /go
+
+cd /go
+
+mkdir src
+
+cd src
+
+git clone https://github.com/zelar-soft-todoapp/login.git
+
+cd login
+
+go get
+
+go build
+
+./login
+
+#Create Service File For Login
+
+cd /etc/systemd/system
+
+vi login.service
+
+#Start The Login Service
+
+systemctl deamon-reload
+
+systemctl start login
+
+systemctl status login
