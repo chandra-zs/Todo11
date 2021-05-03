@@ -1,0 +1,53 @@
+# Frontend
+
+apt update
+
+#Install Nginx & Npm
+
+apt install nginx -y
+
+systemctl enable nginx
+
+systemctl start nginx
+
+apt install npm -y
+
+#Clone Code From Github
+
+cd /var/www/html
+
+mkdir todo
+
+cd todo
+
+git clone "https://github.com/zelar-soft-todoapp/frontend.git"
+
+cd frontend
+
+npm install
+
+npm run build
+
+#Change Root Path In Nginx
+
+cd /etc/nginx/sites-available/default
+
+vi default
+
+change /var/www/html to /var/www/html/todo/frontend/dist
+
+#Update index.js File With Todo & Login Ip's
+
+cd /var/www/html/todo/frontend
+
+cd config
+
+vi index.js
+
+npm start
+
+systemctl restart nginx
+
+PHOTO-2021-05-02-11-39-44
+
+PHOTO-2021-05-02-11-39-44 (2)
