@@ -1,0 +1,35 @@
+# Users
+
+apt update
+
+apt install maven
+
+#Check Java Version If The Version Is Above 8 Delete It & Download Version 8
+
+java -version
+
+apt-get remove openjdk-11-jdk-headless
+
+apt-get install openjdk-8-jdk
+
+#Clone Code From Github
+
+git clone "https://github.com/zelar-soft-todoapp/users.git"
+
+cd users
+
+mvn clean package
+
+java -jar target/users-api-0.0.1.jar
+
+#Create Users Service & Start
+
+cd /etc/systemd/system
+
+vi users.service
+
+systemctl daemon-reload
+
+systemctl start users
+
+systemctl enable users
