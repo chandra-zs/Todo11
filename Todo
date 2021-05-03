@@ -1,0 +1,27 @@
+# Todo
+
+apt update
+
+apt install npm -y
+
+#Clone The Code Fro Github and Install Npm
+
+git clone "https://github.com/zelar-soft-todoapp/todo.git"
+
+cd todo
+
+npm install
+
+#Create Service File For Todo
+
+cd /etc/systemd/system
+
+vi todo.service
+
+#Start Todo Service
+
+systemctl deamon-reload
+
+systemctl satrt todo
+
+systemctl status todo
