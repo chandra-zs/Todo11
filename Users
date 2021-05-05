@@ -2,13 +2,15 @@
 
 apt update
 
-apt install maven
-
 #Check Java Version If The Version Is Above 8 Delete It & Download Version 8
 
 java -version
 
-apt-get remove openjdk-11-jdk-headless
+#If u have multiple java versions in your system choose java 8 by using below command
+
+sudo update-alternatives --config java
+
+#If u don't have java 8 in your system use below command to install
 
 apt-get install openjdk-8-jdk
 
@@ -17,6 +19,8 @@ apt-get install openjdk-8-jdk
 git clone "https://github.com/zelar-soft-todoapp/users.git"
 
 cd users
+
+apt install maven
 
 mvn clean package
 
